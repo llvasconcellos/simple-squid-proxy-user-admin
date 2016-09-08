@@ -1,0 +1,238 @@
+	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+	<html>
+		<head>
+			<title>Ger&ecirc;nciamento de Usu&aacute;rios de Internet</title>
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+			<link href="estilo.css" rel="stylesheet" rev="stylesheet">
+			<script language="JavaScript" src="http://localhost/Versao%202.5/menu.js"></script>
+			<script defer type="text/javascript" src="pngfix.js"></script>
+			<script language="javascript">
+				var engwindow;
+				var i;
+				function engine(){
+					if(confirm("Deseja enviar todas as malas diretas para todos os segmentos cadastrados? Serão enviadas apenas as malas agendadas para o dia de hoje.")){
+						engwindow = window.open("engine.php", "engwindow");
+						i = setInterval(monitora_engine, 1000);	
+					}
+				}
+				function monitora_engine(){
+					if(engwindow.document.readyState == "complete"){
+						alert("Envio Terminado!");
+						clearInterval(i);
+						engwindow.close();
+					}
+				}
+			</script>
+		</head>
+		<body>
+			<div style="position:absolute; top:0px; left:0px;"><img src="imagens/logo.png"></div>
+			<table width="100%" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" border="0">
+				<tr>
+					<td colspan="3"><img src="imagens/cabecalho.jpg"></td>
+					<td background="imagens/extensao_cabecalho.jpg">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="330" height="30" background="imagens/rodape_cabecalho_1.gif">&nbsp;</td>
+					<td width="44" background="imagens/rodape_cabecalho_2.jpg">&nbsp;</td>
+					<td width="376" background="imagens/rodape_cabecalho_3.gif">
+						<table width="100%" cellpadding="0" cellspacing="0" border="0">
+							<tr>
+								<td align="center" width="100"><a class="menu_horizontal" href="browser_pessoas.php.html">Usuários</a></td>
+								<td align="center"><img src="imagens/divisor.gif"></td>
+								<td align="center" width="100"><a class="menu_horizontal" href="importa_usuarios.php.html">Importação</a></td>
+								<td align="center"><img src="imagens/divisor.gif"></td>
+								<td align="center" width="100"><a class="menu_horizontal" href="sarg.php.html">Relatórios</a></td>
+								<td align="center"><img src="imagens/divisor.gif"></td>
+								<td align="center" width="100"><a class="menu_horizontal" href="form_blacklist.php.html">BlackList</a></td>
+								<td align="center"><img src="imagens/divisor.gif"></td>
+								<td align="center" width="100"><a class="menu_horizontal" href="configuracoes.php.html">Configurações</a></td>
+								<td align="center" width="50">&nbsp;</td>
+							</tr>
+							<tr>
+								<td colspan="5" height="5"></td> 
+							</tr>
+						</table>
+					</td>
+					<td background="imagens/rodape_cabecalho_3.gif">&nbsp;</td>
+				</tr>
+				<tr>
+					<td colspan="3" width="750">
+		<table width="100%" border="0">
+		<tr>
+			<td width="10">&nbsp;</td>
+			<td width="50"><a href="form_pessoa.php@modo=add.html#" onClick="window.history.back();"><img title="Voltar" border="0" src="imagens/voltar.gif"></a></td>
+			<td width="10">&nbsp;</td>
+			<td align="left" valign="top">
+				<div style="font-family: Arial; font-size: 16px; font-weight: bold; position: absolute; color:#CCCCCC; z-index: 0; margin-top: 7px; margin-left: 2px;">Cadastro de Usuário</div>
+				<div style="font-family: Arial; font-size: 16px; font-weight: bold; position: absolute; color:#0057F4; z-index:1000; margin-top: 5px; margin-left: 0px;">Cadastro de Usuário</div>
+			</td>
+			<td width="30"><a href="home.php.html"><img title="Pagina Inicial" border="0" src="imagens/home.gif"></a></td>
+			<td width="22"><a href="logout.php.html"><img title="Sair do Sistema" border="0" src="imagens/logout.gif"></a></td>
+		</tr>
+	</table>
+	<hr>
+	<br><br>
+	<script language="JavaScript" src="calendar1.js"></script>
+<script language="javascript">
+	function valida_form(){
+		var f = document.forms[0];
+		if(f.nome_pessoa.value == ""){
+			alert("Informe o nome da pessoa");
+			return false;
+		}
+		if(f.usuario.value == ""){
+			alert("Informe o usuário da pessoa.");
+			return false;
+		}
+		if(f.expiracao.value == ""){
+			alert("Informe a data de expiração do usuário.");
+			return false;
+		}
+	}
+</script>
+<table width="100%">
+	<tr>
+		<td width="25%" valign="top" align="left">
+				<table cellpadding="0" cellspacing="0" border="0" width="100%">
+		<tr>
+			<td width="30" height="48" background="imagens/canto_sup_esq_quadro_azul.gif"></td>
+			<td background="imagens/lateral_sup_quadro_azul.gif" valign="top">
+				<div style="width:100%; height: 23px;">&nbsp;</div>
+				Pessoa			</td>
+			<td width="29" background="imagens/canto_sup_dir_quadro_azul.gif"></td>
+		</tr>
+		<tr>
+			<td width="30" background="imagens/lateral_esq_quadro_azul.gif"></td>
+			<td bgcolor="#FFFFFF">
+				<div style="width: 100%; text-align:justify;">
+				<img align="absmiddle" src="imagens/info.gif">
+				&nbsp;Neste formul&aacute;rio &eacute; possivel gravar informa&ccedil;&otilde;es dos usurios que usaro internet na sua empresa.
+				<hr>
+				<center>
+					<a title="Clique para adicionar um novo usurio" href="form_pessoa.php@modo=add.html">
+						<img border="0" align="absmiddle" src="imagens/icone_pessoa_mais.gif">
+					</a>
+					<br>
+					<span style="font-size:9px;">Nova Pessoa</span>
+				</center>
+			</div>
+						</td>
+			<td width="29" background="imagens/lateral_dir_quadro_azul.gif"></td>
+		</tr>
+		<tr>
+			<td width="30" height="90" background="imagens/canto_inf_esq_quadro_azul.jpg"></td>
+			<td background="imagens/lateral_inf_quadro_azul.jpg"></td>
+			<td width="29" height="90" background="imagens/canto_inf_dir_quadro_azul.jpg"></td>
+		</tr>
+	</table>
+			</td>
+		<td width="75%" align="center" valign="top">
+				<table cellpadding="0" cellspacing="0" border="0" width="100%">
+		<tr>
+			<td width="30" height="28" background="imagens/canto_sup_esq_quadro_branco.gif"></td>
+			<td background="imagens/lateral_sup_quadro_branco.gif" valign="top">
+				<span style="font-size:9px;">&nbsp;</span><br>
+				Formulário de Cadastro			</td>
+			<td width="29" background="imagens/canto_sup_dir_quadro_branco.gif"></td>
+		</tr>
+		<tr>
+			<td width="30" background="imagens/lateral_esq_quadro_branco.gif"></td>
+			<td bgcolor="#FFFFFF">
+				<form action="http://localhost/Versao%202.5/salva_pessoa.php" method="post" onSubmit="return valida_form();">
+			<center>
+				<table width="90%" border="0" cellspacing="3">
+					<tr>
+						<td class="label" width="30%">Nível de Acesso:</td>
+						<td>
+							<select name="nivel">
+								<option value="0" selected>Restrito</option>
+								<option value="2">Pleno</option>
+								<option value="1">Master</option>
+							</select>
+						</td>
+						<td width="5%"></td>
+					</tr>
+					<tr>
+						<td class="label">Nome:</td>
+						<td><input type="text" name="nome" value="" maxlength="255" class="input_text"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="label">Usuário:</td>
+						<td><input type="text" name="usuario" value="" maxlength="30" class="input_text"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="label">Senha:</td>
+						<td><input type="text" name="senha" value="" maxlength="30" class="input_text"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="label">Expiração:</td>
+						<td><input type="text" name="expiracao" value="31/12/2099 23:59:59" maxlength="19" class="input_text"></td>
+						<td align="right"><a href="javascript: cal1.popup();"><img src="imagens/cal.gif" border="0" alt="Clique aqui para escolher a data de expiração"></a></td>
+					</tr>
+				</table>
+			</center>
+						</td>
+			<td width="29" background="imagens/lateral_dir_quadro_branco.gif"></td>
+		</tr>
+		<tr>
+			<td width="30" height="27" background="imagens/canto_inf_esq_quadro_branco.gif"></td>
+			<td background="imagens/lateral_inf_quadro_branco.gif"></td>
+			<td width="29" height="27" background="imagens/canto_inf_dir_quadro_branco.gif"></td>
+		</tr>
+	</table>
+				
+			<br>
+				<table cellpadding="0" cellspacing="0" border="0" width="100%">
+		<tr>
+			<td width="30" height="28" background="imagens/canto_sup_esq_quadro_branco.gif"></td>
+			<td background="imagens/lateral_sup_quadro_branco.gif" valign="top">
+				<span style="font-size:9px;">&nbsp;</span><br>
+				Grava Informações			</td>
+			<td width="29" background="imagens/canto_sup_dir_quadro_branco.gif"></td>
+		</tr>
+		<tr>
+			<td width="30" background="imagens/lateral_esq_quadro_branco.gif"></td>
+			<td bgcolor="#FFFFFF">
+				<table width="100%">
+				<tr>
+					<td align="right"><input type="reset" value="Limpar Campos" class="botao_aqua">&nbsp;<input type="submit" value="Salvar" class="botao_aqua">
+					</td>
+				</tr>
+			</table>
+			<script language="javascript">
+				document.forms[0].elements[1].focus();
+				var cal1 = new calendar1(document.forms[0].elements['expiracao']);
+				cal1.year_scroll = true;
+				cal1.time_comp = true;
+			</script>
+						</td>
+			<td width="29" background="imagens/lateral_dir_quadro_branco.gif"></td>
+		</tr>
+		<tr>
+			<td width="30" height="27" background="imagens/canto_inf_esq_quadro_branco.gif"></td>
+			<td background="imagens/lateral_inf_quadro_branco.gif"></td>
+			<td width="29" height="27" background="imagens/canto_inf_dir_quadro_branco.gif"></td>
+		</tr>
+	</table>
+				<input type="hidden" name="modo" value="add"><input type="hidden" name="cd" value="">			</form>
+		</td>
+	</tr>
+</table>
+					</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td colspan="3" height="46" background="imagens/rodape.jpg" align="center">
+						<br>
+						<a href="mailto:sandro@sintetic.com.br">Sandro da Silva</a> - <span style="font-family:wingdings;">(</span>&nbsp;(47) 9974-8227<br>
+						Desenvolvido por Sintetic Systems LTDA. &copy; Todos os Direitos Reservados.
+					</td>
+					<td height="46" background="imagens/rodape.jpg">&nbsp;</td>
+				</tr>
+			</table>
+		</body>
+	</html>
+	

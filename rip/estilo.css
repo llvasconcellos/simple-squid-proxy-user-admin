@@ -1,0 +1,122 @@
+body{
+	margin: 0px;
+	padding: 0px;
+	background-color: #E2E2E2;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+td{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:10px;
+}
+.menu_horizontal:link{
+	font-family:Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	font-weight: bold;
+	text-decoration: none;
+}
+.menu_horizontal:visited{
+	font-family:Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	font-weight: bold;
+	text-decoration: none;
+}
+.menu_horizontal:hover{
+	font-family:Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	font-weight: bold;
+	text-decoration: none;
+}
+.menu_horizontal:active{
+	font-family:Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	font-weight: bold;
+	text-decoration: none;
+}
+.trans_menu{
+	filter: progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=80);
+}
+.input_text,select{
+	background-color: #E9ECF6;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000000;
+	background-image:url('imagens/fundo_caixa_texto.gif');
+	border: 1px solid #304D9D;
+	width: 100%;
+}
+.botao_aqua {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000000;
+	background-image:url(imagens/funto_botao_aqua.gif);
+	border: 1px solid #719CDC;
+	font-weight: bold;
+	height: 20;
+	margin: 0px;
+	padding: 0px;
+	background-color: #B0CCF7;
+}
+.label{
+	font-weight: bold;
+	text-align: right;
+}
+.menu:link{
+	font-family:Arial, Helvetica, sans-serif;
+	color: #000000;
+	font-weight: bold;
+	text-decoration: none;
+}
+.menu:visited{
+	font-family:Arial, Helvetica, sans-serif;
+	color: #000000;
+	font-weight: bold;
+	text-decoration: none;
+}
+.menu:hover{
+	font-family:Arial, Helvetica, sans-serif;
+	color: #000000;
+	font-weight: bold;
+	text-decoration: none;
+}
+.menu:active{
+	font-family:Arial, Helvetica, sans-serif;
+	color: #FF0000;
+	font-weight: bold;
+	text-decoration: none;
+}
+.cabec_tabela_browser{
+	font-family:Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 11px;
+}
+.cabec_tabela_browser:link{
+	font-family:Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 11px;
+}
+.cabec_tabela_browser:visited{
+	font-family:Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 11px;
+}
+.cabec_tabela_browser:hover{
+	font-family:Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	font-weight: bold;
+	text-decoration: underline;
+	font-size: 11px;
+}
+.cabec_tabela_browser:active{
+	font-family:Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 11px;
+}

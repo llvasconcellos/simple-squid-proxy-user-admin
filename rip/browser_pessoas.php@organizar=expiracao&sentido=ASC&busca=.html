@@ -1,0 +1,191 @@
+	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+	<html>
+		<head>
+			<title>Ger&ecirc;nciamento de Usu&aacute;rios de Internet</title>
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+			<link href="estilo.css" rel="stylesheet" rev="stylesheet">
+			<script language="JavaScript" src="http://localhost/Versao%202.5/menu.js"></script>
+			<script defer type="text/javascript" src="pngfix.js"></script>
+			<script language="javascript">
+				var engwindow;
+				var i;
+				function engine(){
+					if(confirm("Deseja enviar todas as malas diretas para todos os segmentos cadastrados? Serão enviadas apenas as malas agendadas para o dia de hoje.")){
+						engwindow = window.open("engine.php", "engwindow");
+						i = setInterval(monitora_engine, 1000);	
+					}
+				}
+				function monitora_engine(){
+					if(engwindow.document.readyState == "complete"){
+						alert("Envio Terminado!");
+						clearInterval(i);
+						engwindow.close();
+					}
+				}
+			</script>
+		</head>
+		<body>
+			<div style="position:absolute; top:0px; left:0px;"><img src="imagens/logo.png"></div>
+			<table width="100%" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" border="0">
+				<tr>
+					<td colspan="3"><img src="imagens/cabecalho.jpg"></td>
+					<td background="imagens/extensao_cabecalho.jpg">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="330" height="30" background="imagens/rodape_cabecalho_1.gif">&nbsp;</td>
+					<td width="44" background="imagens/rodape_cabecalho_2.jpg">&nbsp;</td>
+					<td width="376" background="imagens/rodape_cabecalho_3.gif">
+						<table width="100%" cellpadding="0" cellspacing="0" border="0">
+							<tr>
+								<td align="center" width="100"><a class="menu_horizontal" href="browser_pessoas.php.html">Usuários</a></td>
+								<td align="center"><img src="imagens/divisor.gif"></td>
+								<td align="center" width="100"><a class="menu_horizontal" href="importa_usuarios.php.html">Importação</a></td>
+								<td align="center"><img src="imagens/divisor.gif"></td>
+								<td align="center" width="100"><a class="menu_horizontal" href="sarg.php.html">Relatórios</a></td>
+								<td align="center"><img src="imagens/divisor.gif"></td>
+								<td align="center" width="100"><a class="menu_horizontal" href="form_blacklist.php.html">BlackList</a></td>
+								<td align="center"><img src="imagens/divisor.gif"></td>
+								<td align="center" width="100"><a class="menu_horizontal" href="configuracoes.php.html">Configurações</a></td>
+								<td align="center" width="50">&nbsp;</td>
+							</tr>
+							<tr>
+								<td colspan="5" height="5"></td> 
+							</tr>
+						</table>
+					</td>
+					<td background="imagens/rodape_cabecalho_3.gif">&nbsp;</td>
+				</tr>
+				<tr>
+					<td colspan="3" width="750">
+		<table width="100%" border="0">
+		<tr>
+			<td width="10">&nbsp;</td>
+			<td width="50"><a href="browser_pessoas.php@organizar=expiracao&amp;sentido=ASC&amp;busca=.html#" onClick="window.history.back();"><img title="Voltar" border="0" src="imagens/voltar.gif"></a></td>
+			<td width="10">&nbsp;</td>
+			<td align="left" valign="top">
+				<div style="font-family: Arial; font-size: 16px; font-weight: bold; position: absolute; color:#CCCCCC; z-index: 0; margin-top: 7px; margin-left: 2px;">Usuários Cadastrados</div>
+				<div style="font-family: Arial; font-size: 16px; font-weight: bold; position: absolute; color:#0057F4; z-index:1000; margin-top: 5px; margin-left: 0px;">Usuários Cadastrados</div>
+			</td>
+			<td width="30"><a href="home.php.html"><img title="Pagina Inicial" border="0" src="imagens/home.gif"></a></td>
+			<td width="22"><a href="logout.php.html"><img title="Sair do Sistema" border="0" src="imagens/logout.gif"></a></td>
+		</tr>
+	</table>
+	<hr>
+	<br><br>
+		<table cellpadding="0" cellspacing="0" border="0" width="100%">
+		<tr>
+			<td width="30" height="28" background="imagens/canto_sup_esq_quadro_branco.gif"></td>
+			<td background="imagens/lateral_sup_quadro_branco.gif" valign="top">
+				<span style="font-size:9px;">&nbsp;</span><br>
+							</td>
+			<td width="29" background="imagens/canto_sup_dir_quadro_branco.gif"></td>
+		</tr>
+		<tr>
+			<td width="30" background="imagens/lateral_esq_quadro_branco.gif"></td>
+			<td bgcolor="#FFFFFF">
+		<table width="100%" cellpadding="2" cellspacing="2" border="0">
+		<form action="browser_pessoas.php.html" method="post">
+		<tr>
+			<td width="70" align="center">
+				<a title="Clique para adicionar uma nova pessoa" href="form_pessoa.php.html">
+					<img border="0" align="absmiddle" src="imagens/icone_pessoa_mais.gif">
+				</a>
+				<br>
+				<span style="font-size:9px;">Novo Usuário</span>
+			</td>
+			<td width="100" class="label">Busca:</td>
+			<td width="200"><input type="text" name="busca" class="input_text" value=""></td>
+			<td width="100">
+				<select name="organizar">
+					<option value="nome">Nome</option>
+					<option value="usuario">Usuário</option>
+				</select>
+			</td>
+			<td width="20"><input type="image" src="imagens/lupa.gif"></td>
+			<td>&nbsp;</td>
+		</tr>
+		</form>
+	</table>
+			</td>
+			<td width="29" background="imagens/lateral_dir_quadro_branco.gif"></td>
+		</tr>
+		<tr>
+			<td width="30" height="27" background="imagens/canto_inf_esq_quadro_branco.gif"></td>
+			<td background="imagens/lateral_inf_quadro_branco.gif"></td>
+			<td width="29" height="27" background="imagens/canto_inf_dir_quadro_branco.gif"></td>
+		</tr>
+	</table>
+	<script language="javascript">
+	function apagar(id){
+		if(confirm("Deseja remover este usuário do sistema?"))
+			window.location = 'salva_pessoa.php?modo=apagar&cd=' + id + '';
+	}
+</script>
+	<table cellpadding="0" cellspacing="0" border="0" width="100%">
+		<tr>
+			<td width="30" height="28" background="imagens/canto_sup_esq_quadro_branco.gif"></td>
+			<td background="imagens/lateral_sup_quadro_branco.gif" valign="top">
+				<span style="font-size:9px;">&nbsp;</span><br>
+							</td>
+			<td width="29" background="imagens/canto_sup_dir_quadro_branco.gif"></td>
+		</tr>
+		<tr>
+			<td width="30" background="imagens/lateral_esq_quadro_branco.gif"></td>
+			<td bgcolor="#FFFFFF">
+			<BR>
+		<table width="100%" class="conteudo_quadro_claro" border="0" cellpadding="2" cellspacing="0">
+			<tr style="background-color:#A6C1DC;">
+									<td width="3%" align="left">
+						<span class="cabec_tabela_browser">&nbsp;</span>					</td>
+									<td width="5%" align="left">
+						<span class="cabec_tabela_browser">&nbsp;</span>					</td>
+									<td width="15%" align="left">
+						<a class="cabec_tabela_browser" href="browser_pessoas.php@organizar=usuario&amp;sentido=DESC&amp;busca=.html">Usuário&nbsp;</a>					</td>
+									<td width="25%" align="left">
+						<a class="cabec_tabela_browser" href="browser_pessoas.php@organizar=nome&amp;sentido=DESC&amp;busca=.html">Nome&nbsp;</a>					</td>
+									<td width="16%" align="center">
+						<a class="cabec_tabela_browser" style="color: #00FFFF;" href="browser_pessoas.php@organizar=expiracao&amp;sentido=DESC&amp;busca=.html">Expiração&nbsp;<img border="0" align="absmiddle" src="imagens/sentido_asc.gif"></a>					</td>
+									<td width="16%" align="center">
+						<a class="cabec_tabela_browser" href="browser_pessoas.php@organizar=nivel&amp;sentido=DESC&amp;busca=.html">Nível&nbsp;</a>					</td>
+									<td width="4%" align="right">
+						<span class="cabec_tabela_browser">&nbsp;</span>					</td>
+							</tr>
+			<tr>
+				<td colspan="7">&nbsp;</td>
+			</tr>
+								<tr style="background-color: #E6EDF7;" onMouseOver="this.style.backgroundColor = '#BACAEB';" onMouseOut="this.style.backgroundColor = '#E6EDF7';">
+					<td align="left" valign="top"><a title="Editar" href="form_pessoa.php@modo=update&amp;cd=1.html"><img border="0" src="imagens/editar.gif"></a></td><td align="left" valign="top"><a title="Copiar" href="form_pessoa.php@modo=copiar&amp;cd=1.html"><img border="0" src="imagens/copiar.gif"></a></td><td align="left" valign="top">fulano</td><td align="left" valign="top">Fulano de Tal</td><td align="center" valign="top">31/12/2099 23:59:59</td><td align="center" valign="top">Restrito</td><td align="right" valign="top"><a href="javascript: apagar(1);"><img border="0" src="imagens/lixeira.gif"></a></td></tr>					<tr onMouseOver="this.style.backgroundColor = '#BACAEB';" onMouseOut="this.style.backgroundColor = '';">
+					<td align="left" valign="top"><a title="Editar" href="form_pessoa.php@modo=update&amp;cd=2.html"><img border="0" src="imagens/editar.gif"></a></td><td align="left" valign="top"><a title="Copiar" href="form_pessoa.php@modo=copiar&amp;cd=2.html"><img border="0" src="imagens/copiar.gif"></a></td><td align="left" valign="top">camila</td><td align="left" valign="top">Camila Tavares</td><td align="center" valign="top">31/12/2099 23:59:59</td><td align="center" valign="top">Pleno</td><td align="right" valign="top"><a href="javascript: apagar(2);"><img border="0" src="imagens/lixeira.gif"></a></td></tr>					<tr style="background-color: #E6EDF7;" onMouseOver="this.style.backgroundColor = '#BACAEB';" onMouseOut="this.style.backgroundColor = '#E6EDF7';">
+					<td align="left" valign="top"><a title="Editar" href="form_pessoa.php@modo=update&amp;cd=3.html"><img border="0" src="imagens/editar.gif"></a></td><td align="left" valign="top"><a title="Copiar" href="form_pessoa.php@modo=copiar&amp;cd=3.html"><img border="0" src="imagens/copiar.gif"></a></td><td align="left" valign="top">jd</td><td align="left" valign="top">John Doe</td><td align="center" valign="top">31/12/2099 23:59:59</td><td align="center" valign="top">Master</td><td align="right" valign="top"><a href="javascript: apagar(3);"><img border="0" src="imagens/lixeira.gif"></a></td></tr>					<tr onMouseOver="this.style.backgroundColor = '#BACAEB';" onMouseOut="this.style.backgroundColor = '';">
+					<td align="left" valign="top"><a title="Editar" href="form_pessoa.php@modo=update&amp;cd=4.html"><img border="0" src="imagens/editar.gif"></a></td><td align="left" valign="top"><a title="Copiar" href="form_pessoa.php@modo=copiar&amp;cd=4.html"><img border="0" src="imagens/copiar.gif"></a></td><td align="left" valign="top">jack</td><td align="left" valign="top">Jack Black</td><td align="center" valign="top">31/12/2099 23:59:59</td><td align="center" valign="top">Master</td><td align="right" valign="top"><a href="javascript: apagar(4);"><img border="0" src="imagens/lixeira.gif"></a></td></tr>					<tr style="background-color: #E6EDF7;" onMouseOver="this.style.backgroundColor = '#BACAEB';" onMouseOut="this.style.backgroundColor = '#E6EDF7';">
+					<td align="left" valign="top"><a title="Editar" href="form_pessoa.php@modo=update&amp;cd=5.html"><img border="0" src="imagens/editar.gif"></a></td><td align="left" valign="top"><a title="Copiar" href="form_pessoa.php@modo=copiar&amp;cd=5.html"><img border="0" src="imagens/copiar.gif"></a></td><td align="left" valign="top">admin</td><td align="left" valign="top">administrator</td><td align="center" valign="top">31/12/2099 23:59:59</td><td align="center" valign="top">Restrito</td><td align="right" valign="top"><a href="javascript: apagar(5);"><img border="0" src="imagens/lixeira.gif"></a></td></tr>		</table>
+		<br>
+		<div style="width: 100%; text-align: center;">
+					</div>
+				</td>
+			<td width="29" background="imagens/lateral_dir_quadro_branco.gif"></td>
+		</tr>
+		<tr>
+			<td width="30" height="27" background="imagens/canto_inf_esq_quadro_branco.gif"></td>
+			<td background="imagens/lateral_inf_quadro_branco.gif"></td>
+			<td width="29" height="27" background="imagens/canto_inf_dir_quadro_branco.gif"></td>
+		</tr>
+	</table>
+	<script language="javascript">
+	document.forms[0].elements[0].focus();
+</script>
+					</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td colspan="3" height="46" background="imagens/rodape.jpg" align="center">
+						<br>
+						<a href="mailto:sandro@sintetic.com.br">Sandro da Silva</a> - <span style="font-family:wingdings;">(</span>&nbsp;(47) 9974-8227<br>
+						Desenvolvido por Sintetic Systems LTDA. &copy; Todos os Direitos Reservados.
+					</td>
+					<td height="46" background="imagens/rodape.jpg">&nbsp;</td>
+				</tr>
+			</table>
+		</body>
+	</html>
+	
