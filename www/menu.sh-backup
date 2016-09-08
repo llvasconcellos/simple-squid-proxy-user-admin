@@ -1,0 +1,189 @@
+#!/bin/bash
+#########################################################################
+lb_janela="ADMINISTRACAO DO ACESSO A INTERNET"
+
+Menu () {
+txt_opcao=$( dialog --stdout --backtitle "$lb_janela" --title 'CADASTRO INTERNET' --ok-label 'Ok' \
+--nocancel --menu 'Escolha a opcao desejada' 0 0 0 Cadastrar 'Criar usuario' Excluir 'Excluir usuario' \
+Atualizar 'Trocar senha' Pesquisar 'Pesquisar usuario cadastrado' Sair 'Finalizar' )
+case "$txt_opcao" in
+Cadastrar)
+CadastrarLogin
+;;
+Excluir)
+ExcluirLogin
+;;
+Atualizar)
+TrocarSenha
+;;
+Pesquisar)
+PesquisaLogin
+;;
+Sair)
+clear
+exit
+;;
+esac
+}
+
+CadastrarLogin () {
+resp=1
+while [ $resp -eq 1 ]; do
+Login
+if [ -z $txt_login ] || [ $txt_login == "root" ]; then
+msgInvalido
+else
+existelogin=$( cat /etc/squid/passwd |grep -E ^$txt_login\:|awk 'BEGIN{FS=":"}{print $1}' )
+if [ $txt_login == $existelogin ]; then
+dialog --backtitle "$lb_janela" --title 'DUPLICIDADE' --ok-label 'Ok' --nocancel \
+--msgbox "Usuario \"$txt_login\" ja cadastrado!" 7 50
+else
+resp=0
+fi
+fi
+done
+Nome
+}
+
+ExcluirLogin () {
+resp=1
+while [ $resp -eq 1 ]; do
+Login
+existelogin=$( cat /etc/squid/passwd |grep -E ^$txt_login\:|awk 'BEGIN{FS=":"}{print $1}' )
+if [ $txt_login == $existelogin ]; then
+htpasswd -D /etc/squid/passwd $txt_login
+dialog --backtitle "$lb_janela" --title 'EXCLUSAO' --ok-label 'Concluir' \
+--msgbox "Login \"$txt_login\" excluido com sucesso!!" 7 60
+resp=0
+else
+msgNaoCadastrado
+fi
+done
+Menu
+}
+
+TrocarSenha () {
+resp=1
+while [ $resp -eq 1 ]; do
+Login
+existelogin=$( cat /etc/squid/passwd |grep -E ^$txt_login\:|awk 'BEGIN{FS=":"}{print $1}' )
+if [ $txt_login == $existelogin ]; then
+Senha
+txt_nome=$( cat /etc/squid/passwd |grep -E ^$txt_login\:|awk 'BEGIN{FS=":"}{print $3}' )
+txt_setor=$( cat /etc/squid/passwd |grep -E ^$txt_login\:|awk 'BEGIN{FS=":"}{print $4}' )
+dadosemp=$(echo "":"$txt_nome":"$txt_setor")
+htpasswd -D /etc/squid/passwd $txt_login
+CriarLogin
+kdialog --backtitle "$lb_janela" --title 'TROCA DE SENHA' --ok-label 'Concluir' \
+--msgbox "Troca de senha \"$txt_login\" efetuada com sucesso!!" 7 60
+resp=0
+else
+msgNaoCadastrado
+fi
+done
+Menu
+}
+
+PesquisaLogin () {
+Login
+if [ -z $txt_login ] || [ $txt_login == "root" ]; then
+msgInvalido
+else
+existelogin=$( cat /etc/squid/passwd |grep -E ^$txt_login\:|awk 'BEGIN{FS=":"}{print $1}' )
+if [ $txt_login == $existelogin ]; then
+txt_nome=$( cat /etc/squid/passwd |grep -E ^$txt_login\:|awk 'BEGIN{FS=":"}{print $3}' )
+txt_setor=$( cat /etc/squid/passwd |grep -E ^$txt_login\:|awk 'BEGIN{FS=":"}{print $4}' )
+dialog --backtitle "$lb_janela" --title 'PESQUISA USUARIO' --ok-label 'Ok' \
+--nocancel --msgbox "Os dados informados foram:
+\n\nNOME COMPLETO: $txt_nome\nSETOR: $txt_setor\nLOGIN: $txt_login" 10 60
+else
+msgNaoCadastrado
+fi
+fi
+Menu 
+}
+
+Nome () {
+txt_nome=$( dialog --stdout --backtitle "$lb_janela" --title 'NOME' --ok-label 'Proximo' \
+--nocancel --inputbox 'NOME COMPLETO:' 7 70 )
+txt_nome=$( echo $txt_nome |tr a-z A-Z )
+Setor
+}
+
+Setor () {
+txt_setor=$( dialog --stdout --backtitle "$lb_janela" --title 'SIGLA DO SETOR' --ok-label 'Proximo' \
+--nocancel --inputbox 'SETOR:' 7 30 )
+txt_setor=$( echo $txt_setor |tr a-z A-Z )
+Senha
+ConfirmaDados
+}
+
+
+ConfirmaDados () {
+dialog --backtitle "$lb_janela" --title 'CONFIRMA CADASTRO' --yes-label 'Cadastrar' \
+--no-label 'Nao-Cadastrar' --yesno "Os dados informados foram:
+\n\nNOME COMPLETO: $txt_nome\nSETOR: $txt_setor\nLOGIN: $txt_login" 10 60
+if [ $? -eq 0 ]; then
+dadosemp=$(echo "":"$txt_nome":"$txt_setor")
+CriarLogin
+msgCadastrado
+else
+Menu
+fi
+}
+
+
+CriarLogin () {
+rm -rf /tmp/*.webpwd
+arqtmp="pwd$txt_login.webpwd"
+touch /tmp/$arqtmp
+htpasswd -b /tmp/$arqtmp $txt_login $txt_senha
+dadospwd=$( cat /tmp/$arqtmp )
+rm -rf /tmp/$arqtmp
+echo "$dadospwd$dadosemp" >> /etc/squid/passwd
+}
+
+Login () {
+txt_login=$( dialog --stdout --backtitle "$lb_janela" --title 'LOGIN' --ok-label 'Proximo' \
+--nocancel --inputbox 'LOGIN:' 7 30 )
+}
+
+Senha () {
+resp=1
+while [ $resp -eq 1 ]; do
+txt_senha=$( dialog --stdout --backtitle "$lb_janela" --title 'DIGITACAO SENHA' --ok-label 'Proximo' \
+--nocancel --insecure --passwordbox "DIGITE UMA SENHA:" 7 50 )
+if [ -z $txt_senha ]; then
+dialog --backtitle "$lb_janela" --title 'SENHA INVALIDA' --ok-label 'Ok' --nocancel \
+--msgbox "Senha deve ter no minimo 5 caracteres!!" 7 50
+else
+txt_confsenha=$( dialog --stdout --backtitle "$lb_janela" --title 'CONFIRMA SENHA' \
+--ok-label 'Proximo' --nocancel --insecure --passwordbox "CONFIRME A SENHA:" 7 50 )
+if [ $txt_senha == $txt_confsenha ]; then
+resp=0
+else
+dialog --backtitle "$lb_janela" --title 'ERRO CONFERENCIA' --ok-label 'Ok' \
+--nocancel --msgbox "Senha deve ser igual na digitacao e redigitacao!!" 7 40
+fi
+fi
+done
+}
+
+msgCadastrado () {
+dialog --backtitle "$lb_janela" --title 'CONCLUIDO' --ok-label 'Concluir' \
+--msgbox "Cadastro do login \"$txt_login\" efetuado com sucesso!!" 7 60
+Menu
+}
+
+msgNaoCadastrado () {
+dialog --backtitle "$lb_janela" --title 'TROCA DE SENHA' --ok-label 'Ok' --nocancel \
+--msgbox "Usuario \"$txt_login\" nao cadastrado!!" 7 50
+}
+
+msgInvalido () {
+dialog --backtitle "$lb_janela" --title 'USUARIO INVALIDO' --ok-label 'Ok' --nocancel \
+--msgbox "Usuario NAO pode ser \"root\" ou \"em branco\"!!" 7 50
+}
+
+Menu 
+############################################################################### 
