@@ -45,9 +45,9 @@ function inicia_pagina(){
 							<tr>
 								<td align="center" width="100"><a class="menu_horizontal" href="browser_pessoas.php">Usuários</a></td>
 								<td align="center"><img src="imagens/divisor.gif"></td>
-								<td align="center" width="100"><a class="menu_horizontal" href="sarg.php">Relatórios</a></td>
-								<td align="center"><img src="imagens/divisor.gif"></td>
 								<td align="center" width="100"><a class="menu_horizontal" href="importa_usuarios.php">Importação</a></td>
+								<td align="center"><img src="imagens/divisor.gif"></td>
+								<td align="center" width="100"><a class="menu_horizontal" href="sarg.php">Relatórios</a></td>
 								<td align="center"><img src="imagens/divisor.gif"></td>
 								<td align="center" width="100"><a class="menu_horizontal" href="form_blacklist.php">BlackList</a></td>
 								<td align="center"><img src="imagens/divisor.gif"></td>

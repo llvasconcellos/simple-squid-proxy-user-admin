@@ -21,15 +21,17 @@ monta_titulo_secao("Gerênciamento de Usuários de Internet!");
 							<td colspan="3">&nbsp;</td>
 						</tr>
 						<tr height="50">
-							<td valign="top" align="center" width="33%"><a class="menu" href="browser_pessoas.php"><img border="0" src="imagens/icone_pessoa_gr.gif"></a></td>
-							<td valign="top" align="center" width="33%"><a class="menu" href="importa_usuarios.php"><img border="0" src="imagens/icone_modelo_gr.gif"></a></td>
-							<td valign="top" align="center" width="33%"><a class="menu" href="sarg.php"><img border="0" src="imagens/relatorios.gif"></a></td>
-							<td valign="top" align="center" width="33%"><a class="menu" href="configuracoes.php"><img border="0" src="imagens/icone_configuracao_gr.gif"></a></td>
+							<td valign="top" align="center" width="20%"><a class="menu" href="browser_pessoas.php"><img border="0" src="imagens/icone_pessoa_gr.gif"></a></td>
+							<td valign="top" align="center" width="20%"><a class="menu" href="importa_usuarios.php"><img border="0" src="imagens/icone_modelo_gr.gif"></a></td>
+							<td valign="top" align="center" width="20%"><a class="menu" href="sarg.php"><img border="0" src="imagens/relatorios.gif"></a></td>
+							<td valign="top" align="center" width="20%"><a class="menu" href="form_blacklist.php"><img border="0" src="imagens/blacklist.gif"></a></td>
+							<td valign="top" align="center" width="20%"><a class="menu" href="configuracoes.php"><img border="0" src="imagens/icone_configuracao_gr.gif"></a></td>
 						</tr>
 						<tr height="60">
 							<td valign="top" align="center"><a class="menu" href="browser_pessoas.php">Pessoas</a></td>
 							<td valign="top" align="center"><a class="menu" href="importa_usuarios.php">Importa Usuários</a></td>
 							<td valign="top" align="center"><a class="menu" href="sarg.php">Relatórios</a></td>
+							<td valign="top" align="center"><a class="menu" href="form_blacklist.php">BlackList</a></td>
 							<td valign="top" align="center"><a class="menu" href="configuracoes.php">Configura&ccedil;&otilde;es</a></td>
 						</tr>
 					</table>
